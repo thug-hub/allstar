@@ -1,0 +1,71 @@
+-- THUG HUB ALL STAR EXP FARM
+
+-- Farms Infinite Extreme until Wave 10
+-- Needs Uryu 6 star (orb isn't needed)
+
+if game.PlaceId == 4996049426 then
+
+repeat wait() until game:IsLoaded()
+
+for i, v in next, getconnections(game.Players.LocalPlayer.Idled) do
+    v:Disable();
+	end;
+
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.ModeVoteFrame.Visible == true
+wait(3)
+game:GetService("ReplicatedStorage").Remotes.Input:FireServer("VoteGameMode", "Extreme")
+
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 3"
+if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 3" then
+
+    local args = {
+        [1] = "Summon",
+        [2] = {
+            ["Rotation"] = 0,
+            ["cframe"] = CFrame.new(11.5817509, 152.515305, -76.1840973, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+            ["Unit"] = "Uryu5"
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Remotes.Input:FireServer(unpack(args))
+end
+
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 8"
+if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 8" then
+wait(25)
+game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", workspace.Unit.Uryu5)
+end
+
+game:GetService("Players").LocalPlayer.PlayerGui.ChildAdded:Connect(function()
+    
+for _, p in pairs(game:GetService("Players").LocalPlayer.PlayerGui:GetDescendants()) do
+    if p:IsA("Frame") and p.Parent.Name == "ScreenGui" then
+
+        wait(2)
+        local gui = p.Parent
+            
+        for i, v in pairs(gui:GetDescendants()) do
+            if v:IsA("TextButton") and string.lower(tostring(v.Text)) == "replay" then
+                
+            local xy = v.AbsolutePosition
+                local split = string.split(tostring(xy), ", ")
+                local x = tonumber(split[1]) + 30
+                local y = tonumber(split[2]) + 50
+                        
+                print(x)
+                print(y)
+                
+                local vim = game:GetService('VirtualInputManager')
+                
+                vim:SendMouseButtonEvent(x,y,0,true,game,0)
+                wait()
+                vim:SendMouseButtonEvent(x,y,0,false,game,0)
+                
+            end
+        end
+    end
+
+end
+end)
+
+end
