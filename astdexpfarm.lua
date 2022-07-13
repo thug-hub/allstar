@@ -14,6 +14,8 @@ for i, v in next, getconnections(game.Players.LocalPlayer.Idled) do
 repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.ModeVoteFrame.Visible == true
 wait(3)
 game:GetService("ReplicatedStorage").Remotes.Input:FireServer("VoteGameMode", "Extreme")
+wait(1)
+game:GetService("ReplicatedStorage").Remotes.Input:FireServer("SpeedChange", true)
 
 repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 3"
 if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 3" then
