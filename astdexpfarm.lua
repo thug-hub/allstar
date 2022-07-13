@@ -34,7 +34,7 @@ end
 
 repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 8"
 if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 8" then
-wait(12.75)
+wait(13)
 game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", workspace.Unit.Uryu5)
 end
 
