@@ -5,8 +5,6 @@
 
 if game.PlaceId == 4996049426 then
 
-repeat wait() until game:IsLoaded()
-
 for i, v in next, getconnections(game.Players.LocalPlayer.Idled) do
     v:Disable();
 	end;
