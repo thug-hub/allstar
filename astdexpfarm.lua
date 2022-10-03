@@ -3,6 +3,8 @@
 -- Farms Infinite Extreme until Wave 10
 -- Needs Uryu 6 star (orb isn't needed)
 
+wait(3)
+
 if game.PlaceId == 4996049426 then
 
 for i, v in next, getconnections(game.Players.LocalPlayer.Idled) do
@@ -10,7 +12,7 @@ for i, v in next, getconnections(game.Players.LocalPlayer.Idled) do
 	end;
 
 repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.ModeVoteFrame.Visible == true
-wait(3)
+wait(2)
 game:GetService("ReplicatedStorage").Remotes.Input:FireServer("VoteGameMode", "Extreme")
 wait(1)
 game:GetService("ReplicatedStorage").Remotes.Input:FireServer("SpeedChange", true)
