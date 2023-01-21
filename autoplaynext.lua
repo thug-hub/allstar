@@ -1,3 +1,4 @@
+print("auto next activated")
 repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.BG.Actions.Next.Visible == true
 task.wait(2)
 local VIM = game:GetService("VirtualInputManager")
