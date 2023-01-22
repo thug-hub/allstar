@@ -25,5 +25,4 @@ if game.PlaceId == 4996049426 then
         i = i+1
         waitupgrade(upgradecosts[i], SW, 1)
     until i == 18
-    
 end
