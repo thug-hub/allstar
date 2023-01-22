@@ -1,11 +1,11 @@
 if game.PlaceId == 4996049426 then
     function waitupgrade(num, table, unitnum)
         if tonumber(game:GetService("Players").LocalPlayer.Money.Value) >= num then
-            wait(1)
+            wait(0.2)
             game:GetService("ReplicatedStorage").Remotes.Server:InvokeServer("Upgrade", table[unitnum])
         else
             repeat wait() until tonumber(game:GetService("Players").LocalPlayer.Money.Value) >= num
-            wait(1)
+            wait(0.2)
             game:GetService("ReplicatedStorage").Remotes.Server:InvokeServer("Upgrade", table[unitnum])
         end
     end
