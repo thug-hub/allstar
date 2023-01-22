@@ -1,3 +1,5 @@
+game.Loaded:Wait()
+
 if game.PlaceId == 4996049426 then
     print("auto next activated")
     repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.BG.Actions.Next.Visible == true
