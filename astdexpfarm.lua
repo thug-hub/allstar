@@ -24,7 +24,7 @@ if tonumber(game:GetService("Players").LocalPlayer.Money.Value) >= 680 then
         [1] = "Summon",
         [2] = {
             ["Rotation"] = 0,
-            ["cframe"] = CFrame.new(-402.004303, 596.420959, 2.55724812, 1, 0, 0, 0, 1, 0, 0, 0, 1), --- (422.569458, 596.420959, 37.8146896, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            ["cframe"] = CFrame.new(Vector3.new(1257.2894287109375, 907.244384765625, -721.8648681640625), Vector3.new(-0, -0, -1)), --- (422.569458, 596.420959, 37.8146896, 1, 0, 0, 0, 1, 0, 0, 0, 1)
             ["Unit"] = "Uryu5"
         }
     }
@@ -41,7 +41,7 @@ if tonumber(game:GetService("Players").LocalPlayer.Money.Value) >= 680 then
     [1] = "Summon",
     [2] = {
         ["Rotation"] = 0,
-        ["cframe"] = CFrame.new(-399.999695, 596.420959, 3.50890923, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+        ["cframe"] = CFrame.new(Vector3.new(1257.056396484375, 907.244384765625, -724.4644775390625), Vector3.new(-0, -0, -1)),
         ["Unit"] = "Uryu5"
         }
     }
@@ -58,7 +58,7 @@ if tonumber(game:GetService("Players").LocalPlayer.Money.Value) >= 680 then
     [1] = "Summon",
     [2] = {
         ["Rotation"] = 0,
-        ["cframe"] = CFrame.new(-401.80929, 596.420959, -4.37113883e-08, 1, 0, 0, 0, 1, 0, 0, 0, -4.37113883e-08),
+        ["cframe"] = CFrame.new(Vector3.new(1259.5394287109375, 907.244384765625, -721.8999633789062), Vector3.new(-0, -0, -1)),
         ["Unit"] = "Uryu5"
         }
     }
@@ -124,36 +124,15 @@ if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17" t
 end
 
 
-game:GetService("Players").LocalPlayer.PlayerGui.ChildAdded:Connect(function()
-    
-for _, p in pairs(game:GetService("Players").LocalPlayer.PlayerGui:GetDescendants()) do
-    if p:IsA("ScreenGui") and p.Name == "MissionEndNavigateDialog" then
-
-        task.wait(2)
-        local gui = p
-
-        for i, v in pairs(gui:GetDescendants()) do
-            if v:IsA("TextButton") and string.lower(tostring(v.Name)) == "replay" then
-                
-            local xy = v.AbsolutePosition
-                local split = string.split(tostring(xy), ", ")
-                local x = tonumber(split[1]) + 30
-                local y = tonumber(split[2]) + 50
-                        
-                print(x)
-                print(y)
-                
-                local vim = game:GetService('VirtualInputManager')
-                
-                vim:SendMouseButtonEvent(x,y,0,true,game,0)
-                task.wait()
-                vim:SendMouseButtonEvent(x,y,0,false,game,0)
-                
-            end
-        end
+repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.Visible == true
+task.wait(3)
+local VIM = game:GetService("VirtualInputManager")
+local clickGui = function(gui)
+    for i = 1, 2 do
+        VIM:SendMouseButtonEvent(gui.AbsolutePosition.X + gui.AbsoluteSize.X / 2, gui.AbsolutePosition.Y + 50, 0, ({true, false})[i], THUG_HUB, 1)
     end
-
 end
-end)
+
+clickGui(game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.BG.Actions.Replay)
 
 end
