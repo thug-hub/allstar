@@ -117,7 +117,7 @@ waitupgrade(4000, Uryus, 1)
 
 repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17"
 if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17" then
-    wait(16)
+    wait(20)
     game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", Uryus[1])
     task.wait(1)
     game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", Uryus[2])
