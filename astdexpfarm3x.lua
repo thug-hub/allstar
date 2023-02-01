@@ -115,9 +115,9 @@ print("up7")
 waitupgrade(4000, Uryus, 1)
 
 
-repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17"
-if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17" then
-    wait(20)
+repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 18"
+if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 18" then
+    wait(13)
     game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", Uryus[1])
     task.wait(1)
     game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", Uryus[2])
@@ -125,9 +125,10 @@ if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17" t
     game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", Uryus[3])
 end
 
-
+print("wait next")
 repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.BG.Actions.Replay.Visible == true
-task.wait(4)
+task.wait(12)
+print("replayed")
 local VIM = game:GetService("VirtualInputManager")
 local clickGui = function(gui)
     for i = 1, 2 do
@@ -136,5 +137,6 @@ local clickGui = function(gui)
 end
 
 clickGui(game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.BG.Actions.Replay)
+
 
 end
