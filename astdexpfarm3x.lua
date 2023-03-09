@@ -2,6 +2,7 @@
 
 -- Farms Infinite Extreme until Wave 20
 -- Needs Uryu 6 star (use fire orb just to be safe)
+game.Loaded:Wait()
 
 task.wait(3)
 
@@ -15,9 +16,12 @@ repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Mo
 task.wait(2)
 game:GetService("ReplicatedStorage").Remotes.Input:FireServer("VoteGameMode", "Extreme")
 task.wait(1)
-game:GetService("ReplicatedStorage").Remotes.Input:FireServer("SpeedChange", true)
-task.wait(1)
-game:GetService("ReplicatedStorage").Remotes.Input:FireServer("SpeedChange", true)
+
+game:GetService("RunService").Stepped:Connect(function()
+    if game:GetService("Players").LocalPlayer.PlayerGui.HUD.FastForward.TextLabel.Text ~= "3X" then
+        game:GetService("ReplicatedStorage").Remotes.Input:FireServer("SpeedChange", true)
+    end
+end)
 
 repeat task.wait() until tonumber(game:GetService("Players").LocalPlayer.Money.Value) >= 680
 if tonumber(game:GetService("Players").LocalPlayer.Money.Value) >= 680 then
@@ -117,7 +121,7 @@ waitupgrade(4000, Uryus, 1)
 
 repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17"
 if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17" then
-    wait(9)
+    wait(22)
     game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", Uryus[1])
     task.wait(1)
     game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", Uryus[2])
