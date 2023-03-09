@@ -16,7 +16,7 @@ task.wait(2)
 game:GetService("ReplicatedStorage").Remotes.Input:FireServer("VoteGameMode", "Extreme")
 task.wait(1)
 game:GetService("ReplicatedStorage").Remotes.Input:FireServer("SpeedChange", true)
-task.wait(0.2)
+task.wait(1)
 game:GetService("ReplicatedStorage").Remotes.Input:FireServer("SpeedChange", true)
 
 repeat task.wait() until tonumber(game:GetService("Players").LocalPlayer.Money.Value) >= 680
