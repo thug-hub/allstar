@@ -2,8 +2,6 @@
 
 -- Farms Infinite Extreme until Wave 20
 -- Needs Uryu 6 star (use fire orb just to be safe)
-game.Loaded:Wait()
-
 task.wait(3)
 
 if game.PlaceId == 4996049426 then
