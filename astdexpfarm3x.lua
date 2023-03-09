@@ -115,8 +115,8 @@ print("up7")
 waitupgrade(4000, Uryus, 1)
 
 
-repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 18"
-if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 18" then
+repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17"
+if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 17" then
     wait(9)
     game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", Uryus[1])
     task.wait(1)
@@ -125,20 +125,16 @@ if game:GetService("Players").LocalPlayer.PlayerGui.HUD.Wave.Text == "Wave 18" t
     game:GetService("ReplicatedStorage").Remotes.Input:FireServer("Sell", Uryus[3])
 end
 
-print("wait next")
-repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.Visible == true
-task.wait(4)
-print("clicked")
-    local VIM = game:GetService("VirtualInputManager")
-    local clickGui = function(gui)
-        print(gui.AbsolutePosition.X)
-        print(gui.AbsolutePosition.Y)
-        for i = 1, 2 do
-            VIM:SendMouseButtonEvent(gui.AbsolutePosition.X + gui.AbsoluteSize.X / 2, gui.AbsolutePosition.Y + 50, 0, ({true, false})[i], THUG_HUB, 1)
-        end
-    end
-    
-    clickGui(game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.BG.Actions.Replay)
 
+repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.Visible == true
+task.wait(3)
+local VIM = game:GetService("VirtualInputManager")
+local clickGui = function(gui)
+    for i = 1, 2 do
+        VIM:SendMouseButtonEvent(gui.AbsolutePosition.X + gui.AbsoluteSize.X / 2, gui.AbsolutePosition.Y + 50, 0, ({true, false})[i], THUG_HUB, 1)
+    end
+end
+
+clickGui(game:GetService("Players").LocalPlayer.PlayerGui.HUD.MissionEnd.BG.Actions.Replay)
 
 end
